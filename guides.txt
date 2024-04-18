@@ -1,0 +1,3 @@
+http://www.java2s.com/Code/Java/Development-Class/ReadfromaSerialportnotifyingwhendataarrives.htm
+https://blog.henrypoon.com/blog/2011/01/01/serial-communication-in-java-with-example-program/
+https://www.java-samples.com/showtutorial.php?tutorialid=11
