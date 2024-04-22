@@ -15,3 +15,7 @@ library to recognize images
 -https://scikit-learn.org/stable/auto_examples/applications/plot_face_recognition.html
 -https://towardsdatascience.com/building-a-face-recognition-system-using-scikit-learn-in-python-163fd423513b
 -https://www.datasmarts.net/como-crear-un-reconocedor-facial-con-deep-learning-con-scikit-learn-y-opencv/
+-https://luxand.cloud/get-face-recognition-api/?utm_source=google&utm_medium=cpc-face-recognition&utm_campaign=face-recognition-api-new&gad_source=1&gclid=Cj0KCQjwlZixBhCoARIsAIC745CQOuu2niFdyOS3hOh9bMfpWFpOqqgMHyps2IciIQ4EPfqh5VOWersaAhnwEALw_wcB
+-https://www.activestate.com/blog/how-to-use-python-for-face-verification/
+-https://pypi.org/project/face-biometric-recognition/
+-https://realpython.com/face-recognition-with-python/

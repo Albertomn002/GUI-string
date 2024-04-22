@@ -11,8 +11,8 @@ n_samples, n_features = X.shape
 n_components = 150
 pca = PCA(n_components=n_components, svd_solver='randomized', whiten=True).fit(X)
 eigenfaces = pca.components_.reshape(
-    (n_components, faces_data.images.shape[1], faces_data.images.shape[2]))
-    plt.figure(figsize=(10, 3))
+(n_components, faces_data.images.shape[1], faces_data.images.shape[2]))
+plt.figure(figsize=(10, 3))
 for i in range(10):
     plt.subplot(2, 5, i + 1)
     plt.imshow(eigenfaces[i], cmap='gray')
