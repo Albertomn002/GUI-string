@@ -4,4 +4,14 @@ https://www.java-samples.com/showtutorial.php?tutorialid=11
 
 
 
-https://realpython.com/face-recognition-with-python/  - recognized facial system
+- recognized facial system
+https://realpython.com/face-recognition-with-python/  
+https://github.com/topics/face-recognition-python
+
+
+
+library to recognize images 
+-https://scikit-learn.org/stable/
+-https://scikit-learn.org/stable/auto_examples/applications/plot_face_recognition.html
+-https://towardsdatascience.com/building-a-face-recognition-system-using-scikit-learn-in-python-163fd423513b
+-https://www.datasmarts.net/como-crear-un-reconocedor-facial-con-deep-learning-con-scikit-learn-y-opencv/
