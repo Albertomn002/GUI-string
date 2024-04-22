@@ -19,3 +19,4 @@ library to recognize images
 -https://www.activestate.com/blog/how-to-use-python-for-face-verification/
 -https://pypi.org/project/face-biometric-recognition/
 -https://realpython.com/face-recognition-with-python/
+-https://github.com/topics/face-authentication
