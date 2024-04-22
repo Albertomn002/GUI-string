@@ -21,3 +21,5 @@ library to recognize images
 -https://realpython.com/face-recognition-with-python/
 -https://github.com/topics/face-authentication
 -https://reubiometrics.cse.buffalo.edu/
+-https://www.youtube.com/watch?v=N_W4EYtsa10
+
