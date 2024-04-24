@@ -3,9 +3,178 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reader Alarm</title>
+    <title>Music Reproductor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .player {
+            display: flex;
+            align-items: center;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+            padding: 10px;
+        }
+
+        .player-image {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+
+        .player-info {
+            margin-left: 10px;
+            flex: 1;
+        }
+
+        .player-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .player-artist {
+            font-size: 14px;
+            color: #888;
+        }
+
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .control-btn {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+
+        .control-btn:hover {
+            background-color: #ddd;
+        }
+
+        .play-btn {
+            background-color: #3498db;
+            color: white;
+        }
+
+        .pause-btn {
+            display: none;
+            background-color: #f1c40f;
+            color: white;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 5px;
+            background-color: #ddd;
+            margin-top: 10px;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #3498db;
+        }
+
+        /* Optional: Add hover effects for volume and time display */
+        .volume-display,
+        .time-display {
+            cursor: pointer;
+        }
+
+        .volume-display:hover,
+        .time-display:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    
+    <div class="player">
+        <img class="player-image" src="https://placehold.co/" alt="Album cover">
+        <div class="player-info">
+            <span class="player-title">Song Title</span>
+            <span class="player-artist">Artist Name</span>
+        </div>
+        <div class="controls">
+            <button class="control-btn play-btn">Play</button>
+            <button class="control-btn pause-btn">Pause</button>
+            <span class="time-display">00:00</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <div class="volume-display">Volume</div>
+    </div>
+
+    <script>
+        
+        const playBtn = document.querySelector('.play-btn');
+        const pauseBtn = document.querySelector('.pause-btn');
+        const progress = document.querySelector('.progress');
+        const progressBar = document.querySelector('.progress-bar');
+
+        // Simulate audio playback (replace with actual audio controls)
+        let currentTime = 0;
+        let intervalId = null;
+
+        playBtn.addEventListener('click', () => {
+            playBtn.style.display = 'none';
+            pauseBtn.style.display = 'inline-block';
+
+            if (!intervalId) {
+                intervalId = setInterval(() => {
+                    currentTime++;
+                    updateProgress();
+                }, 1000);
+            }
+        });
+
+        pauseBtn.addEventListener('click', () => {
+            playBtn.style.display = 'inline-block';
+            pauseBtn.style.display = 'none';
+
+            if (intervalId) {
+                clearInterval(intervalId);
+                intervalId = null;
+            }
+        });
+
+function updateProgress() {
+    const totalTime = 100; // Replace with actual audio duration
+    const progressValue = (currentTime / totalTime) * 100;
+
+    progress.style.width = `${progressValue}%`;
+
+    // Update time display (optional)
+    const currentMinutes = Math.floor(currentTime / 60);
+    const currentSeconds = currentTime % 60;
+    const formattedTime = `${currentMinutes.toString().padStart(2, '0')}:${currentSeconds.toString().padStart(2, '0')}`;
+    document.querySelector('.time-display').textContent = formattedTime;
+
+    if (currentTime === totalTime) {
+        // Handle end of playback (optional)
+        clearInterval(intervalId);
+        intervalId = null;
+        playBtn.style.display = 'inline-block';
+        pauseBtn.style.display = 'none';
+        progress.style.width = '0';
+        currentTime = 0;
+    }
+}
+
+// Add volume controls (optional)
+const volumeDisplay = document.querySelector('.volume-display');
+let volume = 100; // Initial volume
+
+volumeDisplay.addEventListener('click', () => {
+    // Implement volume adjustment logic here
+    console.log('Adjust volume');
+});
+</script>
 </body>
 </html>

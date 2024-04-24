@@ -1,25 +1,31 @@
+--read data in java--
+https://www.thingsconnected.io/java-serial-tools/
 http://www.java2s.com/Code/Java/Development-Class/ReadfromaSerialportnotifyingwhendataarrives.htm
 https://blog.henrypoon.com/blog/2011/01/01/serial-communication-in-java-with-example-program/
 https://www.java-samples.com/showtutorial.php?tutorialid=11
 
 
 
-- recognized facial system
+-- recognized facial system--
 https://realpython.com/face-recognition-with-python/  
 https://github.com/topics/face-recognition-python
 
 
 
-library to recognize images 
--https://scikit-learn.org/stable/
--https://scikit-learn.org/stable/auto_examples/applications/plot_face_recognition.html
--https://towardsdatascience.com/building-a-face-recognition-system-using-scikit-learn-in-python-163fd423513b
--https://www.datasmarts.net/como-crear-un-reconocedor-facial-con-deep-learning-con-scikit-learn-y-opencv/
--https://luxand.cloud/get-face-recognition-api/?utm_source=google&utm_medium=cpc-face-recognition&utm_campaign=face-recognition-api-new&gad_source=1&gclid=Cj0KCQjwlZixBhCoARIsAIC745CQOuu2niFdyOS3hOh9bMfpWFpOqqgMHyps2IciIQ4EPfqh5VOWersaAhnwEALw_wcB
--https://www.activestate.com/blog/how-to-use-python-for-face-verification/
--https://pypi.org/project/face-biometric-recognition/
--https://realpython.com/face-recognition-with-python/
--https://github.com/topics/face-authentication
--https://reubiometrics.cse.buffalo.edu/
--https://www.youtube.com/watch?v=N_W4EYtsa10
+--library to recognize images --
+https://scikit-learn.org/stable/
+https://scikit-learn.org/stable/auto_examples/applications/plot_face_recognition.html
+https://towardsdatascience.com/building-a-face-recognition-system-using-scikit-learn-in-python-163fd423513b
+https://www.datasmarts.net/como-crear-un-reconocedor-facial-con-deep-learning-con-scikit-learn-y-opencv/
+https://luxand.cloud/get-face-recognition-api/?utm_source=google&utm_medium=cpc-face-recognition&utm_campaign=face-recognition-api-new&gad_source=1&gclid=Cj0KCQjwlZixBhCoARIsAIC745CQOuu2niFdyOS3hOh9bMfpWFpOqqgMHyps2IciIQ4EPfqh5VOWersaAhnwEALw_wcB
+https://www.activestate.com/blog/how-to-use-python-for-face-verification/
+https://pypi.org/project/face-biometric-recognition/
+https://realpython.com/face-recognition-with-python/
+https://github.com/topics/face-authentication
+https://reubiometrics.cse.buffalo.edu/
+https://www.youtube.com/watch?v=N_W4EYtsa10
 
+
+
+--spotify api --
+https://developer.spotify.com/documentation/web-api/howtos/web-app-profile

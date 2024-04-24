@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets import fetch_lfw_people
-from sklearn.decomposition import PCA
+from sklearn.decomposition import PCA # type: ignore
 
 faces_data = fetch_lfw_people(min_faces_per_person=70, resize=0.4)
 
