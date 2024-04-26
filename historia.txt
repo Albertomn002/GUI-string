@@ -1,0 +1,28 @@
+Tutoriales:
+Iniciar sesión con usuario y contraseña en Java y MySQL: [se quitó una URL no válida]
+Acceso a sistema, con contraseña y usuario, en java netbeans: https://www.youtube.com/watch?v=U1QIXJWyGf4
+Login En Java NetBeans 8.2 Y Mostrar Y Ocultar Contraseña: https://m.youtube.com/watch?v=MXT1jFmLm80
+Ejemplos de código:
+Programa en Java que pide una contraseña dando solo 3 oportunidades al usuario: https://m.youtube.com/watch?v=bX9LHgm_BuI
+Documentación:
+JPasswordField: https://docs.oracle.com/javase/8/docs/api/javax/swing/JPasswordField.html
+PasswordField (JavaFX): https://docs.oracle.com/javase/8/javafx/api/javafx/scene/control/PasswordField.html
+Console: https://docs.oracle.com/javase/8/docs/api/java/io/Console.html
+Consideraciones de seguridad:
+
+Es importante nunca almacenar contraseñas en texto plano. Siempre debes almacenarlas de forma hash o encriptada.
+También debes validar la entrada del usuario para asegurarte de que la contraseña cumpla con los requisitos de seguridad mínimos.
+Consejos adicionales:
+
+Puedes usar un administrador de diseño para posicionar los componentes de la pantalla de inicio de sesión.
+Puedes agregar un mensaje de error si el usuario ingresa una contraseña incorrecta.
+Puedes permitir que el usuario recupere su contraseña si la ha olvidado.
+Espero que esta información te ayude a crear una pantalla de ingreso de contraseña en Java.
+
+
+
+
+https://www.youtube.com/watch?v=ytJTSyUYifY
+https://www.youtube.com/watch?v=ZLeGZr7va5Y
+https://www.youtube.com/watch?v=azsXYnkhBuk
+https://www.youtube.com/watch?v=y8KnCBRzTnw
