@@ -4,7 +4,9 @@ http://www.java2s.com/Code/Java/Development-Class/ReadfromaSerialportnotifyingwh
 https://blog.henrypoon.com/blog/2011/01/01/serial-communication-in-java-with-example-program/
 https://www.java-samples.com/showtutorial.php?tutorialid=11
 
-
+--java GUI --
+https://documentation.grandstream.com/knowledge-base/gwn-management-platforms-user-guide/#sign-up-to-gwn-manager
+//https://moralis.io/full-guide-how-to-get-blockchain-data/
 
 -- recognized facial system--
 https://realpython.com/face-recognition-with-python/  
