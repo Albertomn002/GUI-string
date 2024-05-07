@@ -31,3 +31,9 @@ https://www.youtube.com/watch?v=N_W4EYtsa10
 
 --spotify api --
 https://developer.spotify.com/documentation/web-api/howtos/web-app-profile
+
+
+
+
+--Registro de Códigos---
+contact ID y 4/2: Registrar composicion de los código serial
