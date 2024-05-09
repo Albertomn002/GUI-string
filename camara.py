@@ -1,21 +1,18 @@
 import cv2
 
-# Replace URL with address provided by DroidCam app (usually around 4747)
-url = "http://localhost:" + str(URL)
-
-# Open video capture using the IP camera URL
-cap = cv2.VideoCapture(url)
+# Open video capture using default webcam index (DroidCam)
+cap = cv2.VideoCapture(0)
 
 while True:
-    # Capture frame-by-frame
-    ret, frame = cap.read()
+  # Capture frame-by-frame
+  ret, frame = cap.read()
 
-    # Display the resulting frame
-    cv2.imshow('frame', frame)
+  # Display the resulting frame
+  cv2.imshow('frame', frame)
 
-    # Exit if 'q' key is pressed
-    if cv2.waitKey(1) == ord('q'):
-        break
+  # Exit if 'q' key is pressed
+  if cv2.waitKey(1) == ord('q'):
+    break
 
 # Release the capture and close all windows
 cap.release()
