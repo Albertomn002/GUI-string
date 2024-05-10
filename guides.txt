@@ -3,6 +3,7 @@ https://www.thingsconnected.io/java-serial-tools/
 http://www.java2s.com/Code/Java/Development-Class/ReadfromaSerialportnotifyingwhendataarrives.htm
 https://blog.henrypoon.com/blog/2011/01/01/serial-communication-in-java-with-example-program/
 https://www.java-samples.com/showtutorial.php?tutorialid=11
+https://www.codejava.net/java-se/jdbc/connect-to-mysql-database-via-jdbc
 
 --java GUI --
 https://documentation.grandstream.com/knowledge-base/gwn-management-platforms-user-guide/#sign-up-to-gwn-manager
@@ -26,6 +27,9 @@ https://realpython.com/face-recognition-with-python/
 https://github.com/topics/face-authentication
 https://reubiometrics.cse.buffalo.edu/
 https://www.youtube.com/watch?v=N_W4EYtsa10
+https://www.youtube.com/watch?v=A0fm26PKlwk -- Face Recognition Project Using SQL Database and Python 2024 || #freetech #machinelearningproject
+https://github.com/GabySol/OmesTutorials2020/tree/master/2%20Reconocimiento%20de%20placas%20vehiculares -- reconocimiento de placas vehiculares
+
 
 
 
