@@ -41,3 +41,5 @@ https://developer.spotify.com/documentation/web-api/howtos/web-app-profile
 
 --Registro de Códigos---
 contact ID y 4/2: Registrar composicion de los código serial
+connection to MySQL: https://www.youtube.com/playlist?list=PLFDH5bKmoNqwOYnwOmljGuivo4a9EeIvC
+made a GUI to send information to MySQL: https://www.youtube.com/watch?v=lvCYGxyV3a4
