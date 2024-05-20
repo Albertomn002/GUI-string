@@ -24,6 +24,9 @@ https://luxand.cloud/get-face-recognition-api/?utm_source=google&utm_medium=cpc-
 https://www.activestate.com/blog/how-to-use-python-for-face-verification/
 https://pypi.org/project/face-biometric-recognition/
 https://realpython.com/face-recognition-with-python/
+
+
+
 https://github.com/topics/face-authentication
 https://reubiometrics.cse.buffalo.edu/
 https://www.youtube.com/watch?v=N_W4EYtsa10
