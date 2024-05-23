@@ -11,7 +11,7 @@ private void Serial_EventBasedReading(SerialPort activePort) {
               String dataString = new String(newData); // Convert byte array to String
   
               // Split the data string based on the format
-              String[] dataParts = dataString.split(" "); // Use space as the separator
+              String[] dataParts = dataString.split("s"); // Use space as the separator
   
               if (dataParts.length == 8 && dataParts[0].length() == 11 && dataParts[7].equals("[DC4]")) {
                   // Validate the data format and length
