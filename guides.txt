@@ -48,4 +48,5 @@ connection to MySQL: https://www.youtube.com/playlist?list=PLFDH5bKmoNqwOYnwOmlj
 made a GUI to send information to MySQL: https://www.youtube.com/watch?v=lvCYGxyV3a4
 
 
-        
+admin lt3 - template para manejo de clientes 
+ and more
