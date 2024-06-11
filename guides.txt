@@ -50,3 +50,7 @@ made a GUI to send information to MySQL: https://www.youtube.com/watch?v=lvCYGxy
 
 admin lt3 - template para manejo de clientes 
  and more
+
+
+--web service java--
+https://www.youtube.com/watch?v=dPjZwbNibCI&list=PLR2yPNIFMlL-dbPvTJtCYfE9TE6IwcEDf&index=1
