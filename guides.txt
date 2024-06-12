@@ -54,3 +54,4 @@ admin lt3 - template para manejo de clientes
 
 --web service java--
 https://www.youtube.com/watch?v=dPjZwbNibCI&list=PLR2yPNIFMlL-dbPvTJtCYfE9TE6IwcEDf&index=1
+https://www.digitalocean.com/community/tutorials/spring-rest-example-tutorial-spring-restful-web-services
