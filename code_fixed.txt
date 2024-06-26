@@ -1,4 +1,4 @@
-package despacho;
+ package despacho;
 import com.fazecast.jSerialComm.SerialPort;
 import com.fazecast.jSerialComm.SerialPortDataListener;
 import com.fazecast.jSerialComm.SerialPortEvent;
@@ -37,6 +37,8 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+
+//errores arreglados 
 public class NewJFrame extends javax.swing.JFrame {
 
     //variables
@@ -44,9 +46,9 @@ public class NewJFrame extends javax.swing.JFrame {
     OutputStream outputStream1;
     String dataBuffer = "";
     String heartBite = "101000           @    ";
-    String jdbcUrl = "jdbc:mysql://localhost:3306/newrec";
-    String jdbcUser = "AlbertoMN";
-    String jdbcPassword = "C4municipal*";
+    //String jdbcUrl = "jdbc:mysql://172.17.1.206:3306/newrec";
+    //String jdbcUser = "AlbertoMN";
+    //String jdbcPassword = "C4municipal*";
 
     public NewJFrame() {
         initComponents();
@@ -67,7 +69,7 @@ public class NewJFrame extends javax.swing.JFrame {
         jButton_close.setEnabled(false);
         jButton_send.setEnabled(false);
     }
-private void jComboBox_comPortPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {                                                             
+ private void jComboBox_comPortPopupMenuWillBecomeVisible(javax.swing.event.PopupMenuEvent evt) {                                                             
         // obtenemos las conexiones probenientes de los puertos COM
         jComboBox_comPort.removeAllItems();
         SerialPort []portLists = SerialPort.getCommPorts();
@@ -211,27 +213,31 @@ private void jComboBox_comPortPopupMenuWillBecomeVisible(javax.swing.event.Popup
           //convertimos los datos a byte y guardamos en un string
           @Override
           public void serialEvent(SerialPortEvent event) {
-            byte[] newData = event.getReceivedData();
-            String data = new String(newData);
-
-            // Actualizar el JTextArea
-            jTextArea_incomingData.setText(data);
-
-            // Detectar formato y guardar en archivo
-            detectFormatAndSave(data);
-
-            // Limpiar buffer de entrada
-            dataBuffer = "";
+              try {
+                  byte[] newData = event.getReceivedData();
+                  String data = new String(newData);
+                  
+                  // Actualizar el JTextArea
+                  jTextArea_incomingData.setText(data);
+                  
+                  // Detectar formato y guardar en archivo
+                  detectFormatAndSave(data);
+                  
+                  // Limpiar buffer de entrada
+                  dataBuffer = "";
+              } catch (SQLException ex) {
+                  Logger.getLogger(NewJFrame.class.getName()).log(Level.SEVERE, null, ex);
+              }
           }
         });
     }
     
-    private void detectFormatAndSave(String data) {
+    private void detectFormatAndSave(String data) throws SQLException {
     // Get current date and time
     LocalDateTime now = LocalDateTime.now();
     String timestamp = now.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
 
-    try (FileWriter writer = new FileWriter("received_data.txt", true)) {
+    try (FileWriter writer = new FileWriter("c:/AlarmaDigital/received_data.txt", true)) {
         // Detect format and save data with timestamp
         if (data.length() == 23 && data.startsWith("1") && data.charAt(17) == '@') {
             sendHeartBite();
@@ -239,11 +245,11 @@ private void jComboBox_comPortPopupMenuWillBecomeVisible(javax.swing.event.Popup
         } else if (data.length() == 23 && data.startsWith("5") && data.charAt(6) == ' ') {
             System.out.println("El formato es CONTACT ID");
             writer.write(timestamp + " - " + data + System.lineSeparator());
-            extractDescription(data);
+            extractDescriptionContactID(data);
         } else if (data.length() == 23 && data.startsWith("1") && data.charAt(6) == ' ') {
             System.out.println("Es el formato 4/2");
             writer.write(timestamp + " - " + data + System.lineSeparator());
-            //proceso para el formato 4/2
+            extractDescription42(data);
         } else {
             System.out.println("Es un formato no reconocido");
             //proceso para un formato no reconocdo.
@@ -267,53 +273,111 @@ private void jComboBox_comPortPopupMenuWillBecomeVisible(javax.swing.event.Popup
         }
     }
 
-   public String extractDescription(String code) {
-    String description = null;
+   public String extractDescriptionContactID(String code) throws SQLException {
+  String description = null;
 
-    try {
-        // Extract code from fields 8, 9, and 10
-        if (code.length() < 11) {
-            throw new IllegalArgumentException("Invalid code format. Code must be at least 11 characters long.");
-        }
-        String extractedCode = code.substring(8, 11);
-
-        // Realize connection to database
-        try (Connection conn = DriverManager.getConnection(jdbcUrl, jdbcUser, jdbcPassword)) {
-            // Prepare statement for finding code in database
-            String sql = "SELECT des FROM codes WHERE cod = ?";
-            PreparedStatement compareStmt = conn.prepareStatement(sql);
-            compareStmt.setString(1, extractedCode);
-
-            try (ResultSet rs = compareStmt.executeQuery()) {
-                if (rs.next()) {
-                    description = rs.getString("des");
-                    // Save description to received_data table
-                    saveToReceivedDataTable(conn, description);
-                } else {
-                    System.out.println("El codigo no fue encontrado, datos no guardados.");
-                }
-            } catch (SQLException e) {
-                System.err.println("Error: Error checking code in 'codes' table." + e.getMessage());
-            } finally {
-                compareStmt.close(); // Close compareStmt even if an exception occurs
-            }
-        } catch (SQLException e) {
-            System.err.println("Error: Fallo la conexión con la base de datos." + e.getMessage());
-        }
-    } catch (IllegalArgumentException e) {
-        System.err.println("Error: Invalid code format." + e.getMessage());
+  try {
+    // Extract code from fields 8, 9, and 10
+    if (code.length() < 11) {
+      throw new IllegalArgumentException("Invalid code format. Code must be at least 11 characters long.");
     }
+    String extractedCode = code.substring(8, 11);
 
-    return description;
+    // Establish connection to database (replace with your connection logic)
+    Connection conn = getConnection();  // Replace with your connection logic
+
+    if (conn != null) {
+      try (PreparedStatement compareStmt = conn.prepareStatement("SELECT des FROM _codes WHERE cod = ?")) {
+        compareStmt.setString(1, extractedCode);
+
+        try (ResultSet rs = compareStmt.executeQuery()) {
+          if (rs.next()) {
+            description = rs.getString("des");
+            // Save description to received_data table
+            saveToReceivedDataTable(conn, description);
+          } else {
+            System.out.println("El codigo no fue encontrado, datos no guardados.");
+          }
+        } catch (SQLException e) {
+          System.err.println("Error: Error checking code in 'codes' table." + e.getMessage());
+        } finally {
+          compareStmt.close(); // Close compareStmt even if an exception occurs
+        }
+      } finally {
+        // No need for closeConnection since we're not using try-with-resources here
+      }
+    } else {
+      System.err.println("Error: Connection to database failed.");
+    }
+  } catch (IllegalArgumentException e) {
+    System.err.println("Error: Invalid code format." + e.getMessage());
+  }
+
+  return description;
 }
 
 // Function to save data to received_data table remains the same
+    public String extractDescription42(String code) throws SQLException {
+  String description = null;
+
+  try {
+    // Extract code from fields 8, 9, and 10
+    if (code.length() < 11) {
+      throw new IllegalArgumentException("Invalid code format. Code must be at least 11 characters long.");
+    }
+    String extractedCode = code.substring(8, 10);
+
+    // Establish connection to database (replace with your connection logic)
+    Connection conn = getConnection();  // Replace with your connection logic
+
+    if (conn != null) {
+      try (PreparedStatement compareStmt = conn.prepareStatement("SELECT des FROM _codes WHERE cod = ?")) {
+        compareStmt.setString(1, extractedCode);
+
+        try (ResultSet rs = compareStmt.executeQuery()) {
+          if (rs.next()) {
+            description = rs.getString("des");
+            // Save description to received_data table
+            saveToReceivedDataTable(conn, description);
+          } else {
+            System.out.println("El codigo no fue encontrado, datos no guardados.");
+          }
+        } catch (SQLException e) {
+          System.err.println("Error: Error checking code in 'codes' table." + e.getMessage());
+        } finally {
+          compareStmt.close(); // Close compareStmt even if an exception occurs
+        }
+      } finally {
+        //closeConnection(conn);  
+      }
+    } else {
+      System.err.println("Error: Connection to database failed.");
+    }
+  } catch (IllegalArgumentException e) {
+    System.err.println("Error: Invalid code format." + e.getMessage());
+  }
+
+  return description;
+}
+
+// Implement these methods to handle connection logic specific to your application
+private Connection getConnection() {
+  Connection conn = null;
+  try {
+    String dbFilePath = "jdbc:sqlite:C:\\AlarmaDigital\\_sam.db";
+    Class.forName("org.sqlite.JDBC");
+    conn = DriverManager.getConnection(dbFilePath);
+  } catch (SQLException | ClassNotFoundException e) {
+    System.err.println("Error connecting to database: " + e.getMessage());
+  }
+  return conn;
+}
 
 
 
 //hacer el insert en la base de datos, el codigo que se encontro
 private void saveToReceivedDataTable(Connection conn, String data) throws SQLException {
-    String insertSQL = "INSERT INTO received_data (data, date) VALUES (?, ?)";
+    String insertSQL = "INSERT INTO _received_data (data, date) VALUES (?, ?)";
     try (PreparedStatement insertStmt = conn.prepareStatement(insertSQL)) {
         insertStmt.setString(1, data);
         insertStmt.setString(2, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
@@ -335,3 +399,4 @@ private void saveToReceivedDataTable(Connection conn, String data) throws SQLExc
             }
         });
     }
+}
